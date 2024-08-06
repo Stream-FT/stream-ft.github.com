@@ -1,1 +1,0 @@
-![integrations](img/Integrations.png)
