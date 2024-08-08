@@ -80,7 +80,7 @@
     <ul>
                 <li class="toctree-l2"><a class="" href="https://api.streamos.io/swagger-ui">Swagger</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../api-howto/">How-To</a>
+                <li class="toctree-l2"><a class="reference internal" href="../api-howto/">How-To & Sample Code</a>
                 </li>
     </ul>
                   </li>
@@ -116,6 +116,7 @@
 <li><strong>Running simulations</strong></li>
 <li><strong>Viewing Results</strong></li>
 </ol>
+<p><em>Use the code here <a href="../api-howto/#sample-code">Sample Code</a> and run them against the /sim/... endpoints</em></p>
 <h3 id="how-simluations-are-setup">How simluations are setup ?</h3>
 <p>Simulation environments bootstrap with all contracts, customers and products from your production environment. </p>
 <p>The /sim <a href="https://api.streamos.io/swagger-ui/#/default">endpoints</a> are simulation events and perform the same work as described in other sections except that they do not store data in production and are ephemeral (state recycles around system restarts etc.). Although our systems are largely up, state will be reset around system upgrades and catastrophical updates (like AWS going down)</p>
@@ -124,14 +125,22 @@
 <ol>
 <li>Usage: do not upload usage as you would regularly to your usage endpoint - instead structure your usage dataframe and pass it directly in to the /run endpoint as referenced <a href="https://api.streamos.io/swagger-ui/#/default/post_sim_contracts__organization_id__factory_run">here</a> </li>
 </ol>
+<pre><code>response = client.post(f'/contracts/{org_id}/factory/run', json={'usage': [{'date': '2024-02-29', 'product_id': product_id, 'contract_id': product_contract_id, 'quantity': 100}] })
+
+customer_id: Specify the customer_id of the customer you would like to run the contracts for 
+contract_id: Specify the contract_id of the contract you would like to run 
+
+Please ensure that the contract_id in the usage schema is the contract_id of the Product Contract that wraps that product referenced.
+</code></pre>
 <h3 id="viewing-results">Viewing Results</h3>
 <p>Results of simulations are returned from <a href="https://api.streamos.io/swagger-ui/#/default/get_sim_contracts__organization_id__factory_charges">here</a>. </p>
-<p>This is a pandas.multiindex dataframe once unpacked - with column headers reflecting each level of the contract that produces results: </p>
-<p><strong>index:</strong> datetime index of charges events 
-<strong>columns:</strong>    [Parent Contract Info]
-                [Sub Contract Info]  [total amount of parent]
-                [Plan Info] [total amount of sub contract]
-                [unit amount] [quantity] [total amount]</p>
+<p>This is a pandas.multiindex dataframe once unpacked - with column headers reflecting each level of the contract that produces results:   </p>
+<pre><code>**index:** datetime index of charges events   
+**columns:**    [Parent Contract Info]  
+                [Sub Contract Info]  [total amount of parent]  
+                [Plan Info] [total amount of sub contract]  
+                [unit amount] [quantity] [total amount]  
+</code></pre>
 <p>The way to process this information is to unwrap columns at each level and process the remaining dataframe to inspect details of how the prices were created.</p>
               
             </div>
