@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Introduction - streamOS</title>
+    <title>Plans - streamOS</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Introduction";
-        var mkdocs_page_input_path = "about.md";
+        var mkdocs_page_name = "Plans";
+        var mkdocs_page_input_path = "plans.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,7 +44,7 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Platform</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../bot/">The streamOS Bot</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../simulations/">Simulations</a>
@@ -53,30 +53,39 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../reconciliation/">Reconciliation</a>
                   </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Contract2Cash</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#contract2cash">Contract2Cash</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Object Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../customer/">Customer Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../product/">Product Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../contracts/">Contract Object</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Contracts</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../contracts/">Contract Types</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Plans</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="" href="../modifiers.md">Modifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../billing.md">Billing Frequency</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../contract_examples.md">Examples</a>
+                </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../invoice/">Invoice Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../users/">Users</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Developer Documentation</a>
     <ul>
@@ -85,6 +94,10 @@
                 <li class="toctree-l2"><a class="reference internal" href="../api-howto/">How-To & Sample Code</a>
                 </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tos/">Terms of Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../privacy.md">Privacy Policy</a>
                   </li>
               </ul>
       </div>
@@ -101,8 +114,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Contract2Cash</li>
-      <li class="breadcrumb-item active">Introduction</li>
+          <li class="breadcrumb-item">Platform</li>
+          <li class="breadcrumb-item">Contracts</li>
+      <li class="breadcrumb-item active">Plans</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,18 +125,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="introduction">Introduction</h1>
-<h2 id="contract2cash">Contract2Cash</h2>
-<p><strong>streamOS:Contract2Cash</strong> – Module enables companies to create, measure, bill and reconcile the entire contract 2 cash process for complex, small and large scale billing processes. </p>
-<p>From setting up complex contract structures, viewing usage and real-time charges – this document will walk you through our primary modules, interaction structures and how best to utilize the power of the financial operating system to best suit your needs. </p>
-<p><img alt="Contract2Cash" src="../img/contract2cash.png" /></p>
-<p>As always contact your streamOS sales representative or <a href="mailto:support@streamos.com">email us</a> for any further question you may have.</p>
+                <h3 id="plans">Plans</h3>
+<p>Plans are billable events in streamOS. They define amounts that need to be charged to the customer. They are operated upon by contracts to enforce how long and when. 
+Plans are meant to be flexible, they can be created specific to each contract and applied or created as generic plans to be applied across your customer base.</p>
+<ul>
+<li><a href="#fixed-fee-plans">Fixed Fee Plans</a></li>
+<li><a href="#rev-share-plans">Rev Share Plans</a></li>
+<li><a href="#usage-based-plans">Usage Based Plans</a></li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../reconciliation/" class="btn btn-neutral float-left" title="Reconciliation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contracts/" class="btn btn-neutral float-left" title="Contract Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../usage/" class="btn btn-neutral float-right" title="Usage Object">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -145,10 +161,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../reconciliation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../contracts/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

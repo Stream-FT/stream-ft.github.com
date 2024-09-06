@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Overview - streamOS</title>
+    <title>Object Overview - streamOS</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
+        var mkdocs_page_name = "Object Overview";
         var mkdocs_page_input_path = "overview.md";
         var mkdocs_page_url = null;
       </script>
@@ -44,7 +44,7 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Platform</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../bot/">The streamOS Bot</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../simulations/">Simulations</a>
@@ -53,12 +53,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../reconciliation/">Reconciliation</a>
                   </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Contract2Cash</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../about/">Introduction</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Object Overview</a>
     <ul class="current">
     </ul>
                   </li>
@@ -66,15 +61,31 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../product/">Product Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../contracts/">Contract Object</a>
+                  <li class="toctree-l1"><a class="reference internal" >Contracts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../contracts/">Contract Types</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../plans/">Plans</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../modifiers.md">Modifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../billing.md">Billing Frequency</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../contract_examples.md">Examples</a>
+                </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../invoice/">Invoice Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../users/">Users</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Developer Documentation</a>
     <ul>
@@ -83,6 +94,10 @@
                 <li class="toctree-l2"><a class="reference internal" href="../api-howto/">How-To & Sample Code</a>
                 </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tos/">Terms of Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../privacy.md">Privacy Policy</a>
                   </li>
               </ul>
       </div>
@@ -99,8 +114,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Contract2Cash</li>
-      <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item">Platform</li>
+      <li class="breadcrumb-item active">Object Overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -114,7 +129,7 @@
 <ul>
 <li><a href="../customer/">Customers</a>: Contains everything related to your customers that streamOS requires + some that your accounting platform requires.</li>
 <li><a href="../product/">Products</a>: Deals with products / services that you provide + some information to manage for your accounting system.</li>
-<li><a href="../contracts/">Contracts</a>: Is the brain of the AR module, stores key contract logic and the magic that makes them work.</li>
+<li><a href="../contracts/">Contracts</a>: Is the brain of the module, stores key contract logic and the magic that makes them work.</li>
 <li><a href="../usage/">Usage</a>: Deals with quantities of products or services that are sold over time</li>
 <li><a href="../invoice/">Invoice</a>: streamOS' representation of an actual invoice, this is as close an approximation of what will be translated to your accounting platform and to your customers.</li>
 </ul>
@@ -123,7 +138,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../about/" class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../reconciliation/" class="btn btn-neutral float-left" title="Reconciliation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../customer/" class="btn btn-neutral float-right" title="Customer Object">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -147,7 +162,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../reconciliation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../customer/" style="color: #fcfcfc">Next &raquo;</a></span>

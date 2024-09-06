@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Usage Object - streamOS</title>
+    <title>Use Case - Contract2Cash - streamOS</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Usage Object";
-        var mkdocs_page_input_path = "usage.md";
+        var mkdocs_page_name = "Use Case - Contract2Cash";
+        var mkdocs_page_input_path = "c2c.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -73,15 +73,17 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Usage Object</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../invoice/">Invoice Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../users/">Users</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Use Case - Contract2Cash</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contract2cash">Contract2Cash</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
                   </li>
@@ -115,7 +117,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Platform</li>
-      <li class="breadcrumb-item active">Usage Object</li>
+      <li class="breadcrumb-item active">Use Case - Contract2Cash</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,84 +126,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="usage">Usage</h1>
-<p>The Usage object is the store of actual usage of products and services of your organization. Usage is associated with a Product (<code>product_id</code>) and a ProductContract (<code>contract_id</code>) that wraps billing information about an instance of that product. </p>
-<p>The above structure allows for customers to record usage for their clients against multi use-cases under the same contract.</p>
-<p><strong>Example</strong></p>
-<p>Company A sells an Employee Verification Product to both Youtube and Google Voice. 
-However, they have a contract with their parent Google and invoice them once. </p>
-<pre><code>Parent Contract: Google 
-    Sub Contract: YouTube
-        Product Contract: 
-            - contract_id: xxxxxx
-            - product: Employee Verification (`product_id`: yyyyyy)
-    Sub Contract: Google Voice
-        Product Contract: 
-            - contract_id: aaaaaa
-            - product: Employee Verification (`product_id`: yyyyyy)
-</code></pre>
-<p>Their usage data would therefore look like: </p>
-<table>
-<thead>
-<tr>
-<th>date</th>
-<th>contract_id</th>
-<th>product_id</th>
-<th>quantity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2024-1-1</td>
-<td>xxxxxx</td>
-<td>yyyyyy</td>
-<td>123</td>
-</tr>
-<tr>
-<td>2024-1-1</td>
-<td>aaaaaa</td>
-<td>yyyyyy</td>
-<td>12</td>
-</tr>
-<tr>
-<td>2024-1-2</td>
-<td>xxxxxx</td>
-<td>yyyyyy</td>
-<td>56</td>
-</tr>
-<tr>
-<td>2024-1-3</td>
-<td>xxxxxx</td>
-<td>yyyyyy</td>
-<td>4</td>
-</tr>
-<tr>
-<td>2024-1-3</td>
-<td>aaaaaa</td>
-<td>yyyyyy</td>
-<td>7</td>
-</tr>
-<tr>
-<td>2024-1-4</td>
-<td>xxxxxx</td>
-<td>yyyyyy</td>
-<td>8</td>
-</tr>
-<tr>
-<td>2024-1-5</td>
-<td>aaaaaa</td>
-<td>yyyyyy</td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-<p>The above structure would reflect billables toward YouTube and Google Voice separately but would also allow roll-ups to the parent Google.</p>
+                <h1 id="introduction">Introduction</h1>
+<h2 id="contract2cash">Contract2Cash</h2>
+<p><strong>streamOS:Contract2Cash</strong> – Module enables companies to create, measure, bill and reconcile the entire contract 2 cash process for complex, small and large scale billing processes. </p>
+<p>From setting up complex contract structures, viewing usage and real-time charges – this document will walk you through our primary modules, interaction structures and how best to utilize the power of the financial operating system to best suit your needs. </p>
+<p><img alt="Contract2Cash" src="../img/contract2cash.png" /></p>
+<p>As always contact your streamOS sales representative or <a href="mailto:support@streamos.com">email us</a> for any further question you may have.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../plans/" class="btn btn-neutral float-left" title="Plans"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../invoice/" class="btn btn-neutral float-right" title="Invoice Object">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../users/" class="btn btn-neutral float-left" title="Users"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ & How-To">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -224,10 +160,10 @@ However, they have a contract with their parent Google and invoice them once. </
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../plans/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../users/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../invoice/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

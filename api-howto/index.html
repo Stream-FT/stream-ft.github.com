@@ -44,7 +44,7 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Platform</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../bot/">The streamOS Bot</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../simulations/">Simulations</a>
@@ -53,26 +53,37 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../reconciliation/">Reconciliation</a>
                   </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Contract2Cash</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../about/">Introduction</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Object Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../customer/">Customer Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../product/">Product Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../contracts/">Contract Object</a>
+                  <li class="toctree-l1"><a class="reference internal" >Contracts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../contracts/">Contract Types</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../plans/">Plans</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../modifiers.md">Modifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../billing.md">Billing Frequency</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../contract_examples.md">Examples</a>
+                </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage Object</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../invoice/">Invoice Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../users/">Users</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" >Developer Documentation</a>
     <ul class="current">
@@ -98,6 +109,10 @@
                 </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tos/">Terms of Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../privacy.md">Privacy Policy</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -113,7 +128,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Contract2Cash</li>
+          <li class="breadcrumb-item">Platform</li>
           <li class="breadcrumb-item">Developer Documentation</li>
       <li class="breadcrumb-item active">How-To & Sample Code</li>
     <li class="wy-breadcrumbs-aside">
@@ -729,7 +744,8 @@ def test_sim_factory_run(client):
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../users/" class="btn btn-neutral float-left" title="Users"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../faq/" class="btn btn-neutral float-left" title="FAQ & How-To"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tos/" class="btn btn-neutral float-right" title="Terms of Service">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -752,8 +768,10 @@ def test_sim_factory_run(client):
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../users/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../faq/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../tos/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
