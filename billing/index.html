@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Simulations - streamOS</title>
+    <title>Billing Frequency - streamOS</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Simulations";
-        var mkdocs_page_input_path = "simulations.md";
+        var mkdocs_page_name = "Billing Frequency";
+        var mkdocs_page_input_path = "billing.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -47,9 +47,7 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../bot/">The streamOS Bot</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Simulations</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../simulations/">Simulations</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../integrations/">Integrations</a>
                   </li>
@@ -61,15 +59,17 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../product/">Product Object</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" >Contracts</a>
-    <ul>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Contracts</a>
+    <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../contracts/">Contract Types</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../plans/">Plans</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../modifiers/">Modifiers</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../billing/">Billing Frequency</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Billing Frequency</a>
+    <ul class="current">
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../contract_examples/">Examples</a>
                 </li>
@@ -115,7 +115,8 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Platform</li>
-      <li class="breadcrumb-item active">Simulations</li>
+          <li class="breadcrumb-item">Contracts</li>
+      <li class="breadcrumb-item active">Billing Frequency</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,45 +125,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><img alt="Simulation" src="../img/Simulate.png" /></p>
-<p>Simulations are currently available only for developer API users (Human users will have access to a user friendly version shortly, please stay up to date by following <a href="https://www.linkedin.com/company/stream-os/">streamOS</a> for product updates)</p>
-<ol>
-<li><strong>How simulations are setup ?</strong></li>
-<li><strong>Running simulations</strong></li>
-<li><strong>Viewing Results</strong></li>
-</ol>
-<p><em>Use the code here <a href="../api-howto/#sample-code">Sample Code</a> and run them against the /sim/... endpoints</em></p>
-<h3 id="how-simluations-are-setup">How simluations are setup ?</h3>
-<p>Simulation environments bootstrap with all contracts, customers and products from your production environment. </p>
-<p>The /sim <a href="https://api.streamos.io/swagger-ui/#/default">endpoints</a> are simulation events and perform the same work as described in other sections except that they do not store data in production and are ephemeral (state recycles around system restarts etc.). Although our systems are largely up, state will be reset around system upgrades and catastrophical updates (like AWS going down)</p>
-<h3 id="running-simulations">Running simulations</h3>
-<p>Running simulations are almost exactly like working in a production environment except for a few changes - </p>
-<ol>
-<li>Usage: do not upload usage as you would regularly to your usage endpoint - instead structure your usage dataframe and pass it directly in to the /run endpoint as referenced <a href="https://api.streamos.io/swagger-ui/#/default/post_sim_contracts__organization_id__factory_run">here</a> </li>
-</ol>
-<pre><code>response = client.post(f'/contracts/{org_id}/factory/run', json={'usage': [{'date': '2024-02-29', 'product_id': product_id, 'contract_id': product_contract_id, 'quantity': 100}] })
-
-customer_id: Specify the customer_id of the customer you would like to run the contracts for 
-contract_id: Specify the contract_id of the contract you would like to run 
-
-Please ensure that the contract_id in the usage schema is the contract_id of the Product Contract that wraps that product referenced.
-</code></pre>
-<h3 id="viewing-results">Viewing Results</h3>
-<p>Results of simulations are returned from <a href="https://api.streamos.io/swagger-ui/#/default/get_sim_contracts__organization_id__factory_charges">here</a>. </p>
-<p>This is a pandas.multiindex dataframe once unpacked - with column headers reflecting each level of the contract that produces results:   </p>
-<pre><code>**index:** datetime index of charges events   
-**columns:**    [Parent Contract Info]  
-                [Sub Contract Info]  [total amount of parent]  
-                [Plan Info] [total amount of sub contract]  
-                [unit amount] [quantity] [total amount]  
-</code></pre>
-<p>The way to process this information is to unwrap columns at each level and process the remaining dataframe to inspect details of how the prices were created.</p>
+                <h2 id="billing-frequency">Billing Frequency</h2>
+<p>Billing Frequency defines how charges generated in a contract are billed out. All charges within streamOS are pro-rated on a per day basis in the system - they are then grouped and added based on the billing frequency to generate and total to be charged. </p>
+<p>streamOS supports generating billing on a per day, per week, per month or per year basis. With an appropriate use of contracts and billing frequencies contracts can be billed at any day and frequency. </p>
+<ul>
+<li><strong>Type</strong> : the offset to use to calculate the frequency<br />
+           : CALENDAR: all offsets are based of a calendar start date<br />
+           : CONTRACT: all offsets are based of a contract start date - of the associated contract </li>
+<li><strong>Interval</strong> : The number of periods </li>
+<li><strong>Frequency</strong> : 'D' for days, 'W' for weeks, 'M' for months, 'Y' for years (Interval:2 and Frequency: 'Y' = once every 2 years)</li>
+<li><strong>anchor</strong> : Use the beginning or the end if each generated period</li>
+<li><strong>eq</strong> : for periods with unequal days - equalize the amounts generated by them </li>
+</ul>
+<p><em>Example(s):</em></p>
+<p>Contract :
+```
+<strong>Start Date:</strong> 2024-11-26
+<strong>End Date:</strong> 2025-11-26</p>
+<p><strong>Scenario 1:</strong>
+Type: CONTRACT 
+Interval: 2 
+Frequency: 'M'
+anchor = 'S'</p>
+<p>Interpretation: Bill all charges generated by this contract every <em>2 months</em> from the <em>contract start</em> at the <em>beginning</em> of each period</p>
+<p>Dates Generated: 
+    ['2024-11-26',
+    '2025-01-26',
+    '2025-03-26',
+    '2025-05-26',
+    '2025-07-26',
+    '2025-09-26',
+    '2025-11-26']</p>
+<p><strong>Scenario 2</strong>
+Type: CALENDAR 
+Interval: 2 
+Frequency: 'M'
+anchor = 'S'</p>
+<p>Interpretation: Bill all charges generated by this contract every <em>2 months</em> from the <em>calendar start</em> at the <em>beginning</em> of each period</p>
+<p>Dates Generated:
+    ['2024-11-01', 
+    '2025-01-01', 
+    '2025-03-01', 
+    '2025-05-01',
+    '2025-07-01', 
+    '2025-09-01', 
+    '2025-11-01']</p>
+<p>Notice the difference between the anchor dates - one anchors off the contract start and the other uses the closes calendar month of the contract. </p>
+<p><strong>Please note that billing frequencies of contracts influence those of the contracts below them</strong></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../bot/" class="btn btn-neutral float-left" title="The streamOS Bot"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../integrations/" class="btn btn-neutral float-right" title="Integrations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../modifiers/" class="btn btn-neutral float-left" title="Modifiers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contract_examples/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -185,10 +200,10 @@ Please ensure that the contract_id in the usage schema is the contract_id of the
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../bot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../modifiers/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../integrations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../contract_examples/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

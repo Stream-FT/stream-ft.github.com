@@ -71,37 +71,17 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#product-contract">Product Contract</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#fixed-fee-plans">Fixed Fee Plans</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#usage-based-plans">Usage Based Plans</a>
-    </li>
         </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#modifiers">Modifiers</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#minimums">Minimums</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#discounts">Discounts</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#credits">Credits</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#renewals">Renewals</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#billing-frequency">Billing Frequency</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#contract-examples">Contract Examples</a>
     </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../plans/">Plans</a>
                 </li>
-                <li class="toctree-l2"><a class="" href="../modifiers.md">Modifiers</a>
+                <li class="toctree-l2"><a class="reference internal" href="../modifiers/">Modifiers</a>
                 </li>
-                <li class="toctree-l2"><a class="" href="../billing.md">Billing Frequency</a>
+                <li class="toctree-l2"><a class="reference internal" href="../billing/">Billing Frequency</a>
                 </li>
-                <li class="toctree-l2"><a class="" href="../contract_examples.md">Examples</a>
+                <li class="toctree-l2"><a class="reference internal" href="../contract_examples/">Examples</a>
                 </li>
     </ul>
                   </li>
@@ -113,7 +93,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../marketplace/">Use Case - Marketplace</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
                   </li>
@@ -127,7 +107,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../tos/">Terms of Service</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../privacy.md">Privacy Policy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../privacy/">Privacy Policy</a>
                   </li>
               </ul>
       </div>
@@ -159,23 +139,8 @@
 <p>Contracts in streamOS are business logic elements that store financial logic of how to charge a customer. </p>
 <ul>
 <li><a href="#parent-contract">Parent Contract</a></li>
-<li>
-<p><a href="#sub-contract">Sub-Contract</a></p>
-<ul>
+<li><a href="#sub-contract">Sub-Contract</a></li>
 <li><a href="#product-contract">Product Contract</a></li>
-</ul>
-</li>
-<li>
-<p>Modifiers</p>
-<ul>
-<li><a href="#minimums">Minimums</a></li>
-<li><a href="#discounts">Discounts</a></li>
-<li><a href="#credits">Credits</a></li>
-</ul>
-</li>
-<li>Renewals</li>
-<li><a href="#billing-frequency">Billing Frequency</a></li>
-<li><a href="#contract-examples">Contract Examples</a></li>
 </ul>
 <h3 id="contract-types">Contract Types</h3>
 <p>Contracts in streamOS are containers that decide how billing elements (plans / modifiers) are charged (frequency) and how they interact with each other. They define dates (start, end, how often) and sequence, they do not define how much (these are handled by plans and modifiers)</p>
@@ -191,11 +156,11 @@ Any direct items associated with them are indicative of the fact that they will 
 <li><strong>Start Date</strong>: The Start Date of the contract </li>
 <li><strong>End Date</strong>: The End Date of the contract </li>
 <li><strong>Fixed Fees</strong>: [List of FixedFee] : Any fixed fees associated with this contract </li>
-<li><strong>Minimums</strong>: [Minimum] Any minimums associated with this contract - (this will be applied after all charges are totaled)</li>
-<li><strong>Discounts</strong>: [Discount] Any discounts that need to be applied after all the charges are totaled</li>
+<li><strong>Minimums</strong>: <a href="../modifiers/#minimums">Minimum</a> Any minimums associated with this contract - (this will be applied after all charges are totaled)</li>
+<li><strong>Discounts</strong>: <a href="../modifiers/#discounts">Discount</a> Any discounts that need to be applied after all the charges are totaled</li>
 <li><strong>Auto-Renewals</strong>: [Auto-Renewal] Logic about renewal of the contract </li>
 <li><strong>Sub-Contracts</strong>: [List of <a href="#sub-contract">SubContract</a>] Sub-Contracts associated with this parent</li>
-<li><strong>Billing Frequency</strong>: [Billing-Frequency] Specifies how all aspects of charges in this contract should be billed</li>
+<li><strong>Billing Frequency</strong>: <a href="../billing/">Billing-Frequency</a> Specifies how all aspects of charges in this contract should be billed</li>
 </ul>
 <h4 id="sub-contract">Sub-Contract</h4>
 <p>Sub-Contracts are exactly like Parent Contracts except that they do not link to customer's and hence cannot live without a Parent Contract.<br />
@@ -219,141 +184,9 @@ a platform fee that is billed one year in advance for $10,000 &amp; a support fe
 <ul>
 <li><strong>Display Name</strong>: The name of the Contract  </li>
 <li><strong>Product ID</strong>: The streamOS ID of the product that this contract is representing  </li>
-<li><strong>Tiers</strong>: <a href="#usage-based-plans">Tiers</a> the effective pricing schematic of the product   </li>
-<li><strong>Billing Frequency</strong>: <a href="#billing-frequency">Billing Frequency</a> how the charges from this contract need to be billed</li>
+<li><strong>Tiers</strong>: <a href="../plans/#usage-based-plans">Tiers</a> the effective pricing schematic of the product   </li>
+<li><strong>Billing Frequency</strong>: <a href="billling.md">Billing Frequency</a> how the charges from this contract need to be billed</li>
 </ul>
-<h4 id="fixed-fee-plans">Fixed Fee Plans</h4>
-<p>These are plans that have no variable component to them. Hence can be anything from a License Fee, Support Plan to a One Time Payment. 
-Combined with contracts, they can be charged to the customer at different frequencies. </p>
-<ul>
-<li><strong>Display Name</strong>: The name of the plan (this can be customer specific such as - Customer XX One Time Payment or generic - Enterprise Customer Platform Fee)</li>
-<li><strong>Amount</strong>/<strong>period</strong>: The amount of the fee per period (Ex. $100 / month)</li>
-</ul>
-<h4 id="usage-based-plans">Usage Based Plans</h4>
-<p>These are plans that are tied with usage of a product. Usage Based Plans are linked to products via Product Contracts. </p>
-<ul>
-<li>
-<p><strong>PricingType</strong> :</p>
-<ul>
-<li>FLAT : The single price irrespective of usage </li>
-<li>STEPPED: Charged the price at the target volume </li>
-<li>RAMPED: Charged the price through tiers for qualifying tiers</li>
-</ul>
-</li>
-<li>
-<p><strong>Tiers</strong>:  | Min. Quantity | Max. Quantity | Rate |</p>
-</li>
-<li>
-<p><strong>Accumulation Period</strong>: The duration of time over which usage needs to be totaled before the rate is calculated. </p>
-</li>
-</ul>
-<p>Example:</p>
-<table>
-<thead>
-<tr>
-<th>Min. Quantity</th>
-<th>Max. Quantity</th>
-<th>Rate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>100</td>
-<td>100</td>
-</tr>
-<tr>
-<td>101</td>
-<td>200</td>
-<td>90</td>
-</tr>
-<tr>
-<td>201</td>
-<td>300</td>
-<td>80</td>
-</tr>
-<tr>
-<td>301</td>
-<td>inf.</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Scenario 1:</strong> Quantity 500, STEPPED = 500 * 70 = $35000<br />
-<strong>Scenario 2:</strong> Quantity 500, RAMPED = 100 * 100 + 100 * 90 + 100 * 80 + 200 * 70 = $41000</p>
-<h3 id="modifiers">Modifiers</h3>
-<p>Modifiers are called as such because they are called at the end of every contract run stage and affect the final output of a contract.Every modifier of a contract applies on the result of itself + all its sub-contracts and product contracts.</p>
-<h4 id="minimums">Minimums</h4>
-<p>This ensures that a minimum charge is billed to the customer irrespective of the amount billed by actual elements within the contract. Use minimums with contracts to specify period - per month / quarter / year / contract period.<br />
-<em>Look at <a href="#contract-examples">Contract Examples</a> for some creative ways.</em></p>
-<ul>
-<li><strong>Display Name</strong>: Name the minimum </li>
-<li><strong>Amount</strong>: The amount of the minimum</li>
-</ul>
-<h4 id="discounts">Discounts</h4>
-<p>Discount total billed to the customer. <em>Look at <a href="#contract-examples">Contract Examples</a> for some creative ways.</em></p>
-<ul>
-<li><strong>Display Name</strong>: Name the minimum </li>
-<li><strong>Percentage</strong>: The percentage to be discounted</li>
-<li><strong>Threshold</strong>: The number above which to apply the discount </li>
-</ul>
-<h4 id="credits">Credits</h4>
-<p>Credits to be provided to the customer per contract. </p>
-<ul>
-<li><strong>Display Name</strong>: Name </li>
-<li><strong>Amount</strong>: The amount credit to be applied</li>
-<li><strong>Expiry</strong>: When the credit expires in days from creation</li>
-</ul>
-<h3 id="renewals">Renewals</h3>
-<p>Renewals define behavior on contract expiry, it defines the period for which a contract is renewed and any rate increases. </p>
-<h3 id="billing-frequency">Billing Frequency</h3>
-<p>Billing Frequency defines how charges generated in a contract are billed out. All charges within streamOS are pro-rated on a per day basis in the system - they are then grouped and added based on the billing frequency to generate and total to be charged. </p>
-<p>streamOS supports generating billing on a per day, per week, per month or per year basis. With an appropriate use of contracts and billing frequencies contracts can be billed at any day and frequency. </p>
-<ul>
-<li><strong>Type</strong> : the offset to use to calculate the frequency<br />
-           : CALENDAR: all offsets are based of a calendar start date<br />
-           : CONTRACT: all offsets are based of a contract start date - of the associated contract </li>
-<li><strong>Interval</strong> : The number of periods </li>
-<li><strong>Frequency</strong> : 'D' for days, 'W' for weeks, 'M' for months, 'Y' for years (Interval:2 and Frequency: 'Y' = once every 2 years)</li>
-<li><strong>anchor</strong> : Use the beginning or the end if each generated period</li>
-<li><strong>eq</strong> : for periods with unequal days - equalize the amounts generated by them </li>
-</ul>
-<p><em>Example(s):</em></p>
-<p>Contract :
-```
-<strong>Start Date:</strong> 2024-11-26
-<strong>End Date:</strong> 2025-11-26</p>
-<p><strong>Scenario 1:</strong>
-Type: CONTRACT 
-Interval: 2 
-Frequency: 'M'
-anchor = 'S'</p>
-<p>Interpretation: Bill all charges generated by this contract every <em>2 months</em> from the <em>contract start</em> at the <em>beginning</em> of each period</p>
-<p>Dates Generated: 
-    ['2024-11-26',
-    '2025-01-26',
-    '2025-03-26',
-    '2025-05-26',
-    '2025-07-26',
-    '2025-09-26',
-    '2025-11-26']</p>
-<p><strong>Scenario 2</strong>
-Type: CALENDAR 
-Interval: 2 
-Frequency: 'M'
-anchor = 'S'</p>
-<p>Interpretation: Bill all charges generated by this contract every <em>2 months</em> from the <em>calendar start</em> at the <em>beginning</em> of each period</p>
-<p>Dates Generated:
-    ['2024-11-01', 
-    '2025-01-01', 
-    '2025-03-01', 
-    '2025-05-01',
-    '2025-07-01', 
-    '2025-09-01', 
-    '2025-11-01']</p>
-<p>Notice the difference between the anchor dates - one anchors off the contract start and the other uses the closes calendar month of the contract. </p>
-<p><strong>Please note that billing frequencies of contracts influence those of the contracts below them</strong></p>
-<h2 id="contract-examples">Contract Examples</h2>
               
             </div>
           </div><footer>

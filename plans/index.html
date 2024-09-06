@@ -65,13 +65,17 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">Plans</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#fixed-fee-plans">Fixed Fee Plans</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#usage-based-plans">Usage Based Plans</a>
+    </li>
     </ul>
                 </li>
-                <li class="toctree-l2"><a class="" href="../modifiers.md">Modifiers</a>
+                <li class="toctree-l2"><a class="reference internal" href="../modifiers/">Modifiers</a>
                 </li>
-                <li class="toctree-l2"><a class="" href="../billing.md">Billing Frequency</a>
+                <li class="toctree-l2"><a class="reference internal" href="../billing/">Billing Frequency</a>
                 </li>
-                <li class="toctree-l2"><a class="" href="../contract_examples.md">Examples</a>
+                <li class="toctree-l2"><a class="reference internal" href="../contract_examples/">Examples</a>
                 </li>
     </ul>
                   </li>
@@ -83,7 +87,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../c2c/">Use Case - Contract2Cash</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../marketplace.md">Use Case - Marketplace</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../marketplace/">Use Case - Marketplace</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ & How-To</a>
                   </li>
@@ -97,7 +101,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../tos/">Terms of Service</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../privacy.md">Privacy Policy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../privacy/">Privacy Policy</a>
                   </li>
               </ul>
       </div>
@@ -125,7 +129,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h3 id="plans">Plans</h3>
+                <h2 id="plans">Plans</h2>
 <p>Plans are billable events in streamOS. They define amounts that need to be charged to the customer. They are operated upon by contracts to enforce how long and when. 
 Plans are meant to be flexible, they can be created specific to each contract and applied or created as generic plans to be applied across your customer base.</p>
 <ul>
@@ -133,12 +137,71 @@ Plans are meant to be flexible, they can be created specific to each contract an
 <li><a href="#rev-share-plans">Rev Share Plans</a></li>
 <li><a href="#usage-based-plans">Usage Based Plans</a></li>
 </ul>
+<h4 id="fixed-fee-plans">Fixed Fee Plans</h4>
+<p>These are plans that have no variable component to them. Hence can be anything from a License Fee, Support Plan to a One Time Payment. 
+Combined with contracts, they can be charged to the customer at different frequencies. </p>
+<ul>
+<li><strong>Display Name</strong>: The name of the plan (this can be customer specific such as - Customer XX One Time Payment or generic - Enterprise Customer Platform Fee)</li>
+<li><strong>Amount</strong>/<strong>period</strong>: The amount of the fee per period (Ex. $100 / month)</li>
+</ul>
+<h4 id="usage-based-plans">Usage Based Plans</h4>
+<p>These are plans that are tied with usage of a product. Usage Based Plans are linked to products via Product Contracts. </p>
+<ul>
+<li>
+<p><strong>PricingType</strong> :</p>
+<ul>
+<li>FLAT : The single price irrespective of usage </li>
+<li>STEPPED: Charged the price at the target volume </li>
+<li>RAMPED: Charged the price through tiers for qualifying tiers</li>
+</ul>
+</li>
+<li>
+<p><strong>Tiers</strong>:  | Min. Quantity | Max. Quantity | Rate |</p>
+</li>
+<li>
+<p><strong>Accumulation Period</strong>: The duration of time over which usage needs to be totaled before the rate is calculated. </p>
+</li>
+</ul>
+<p>Example:</p>
+<table>
+<thead>
+<tr>
+<th>Min. Quantity</th>
+<th>Max. Quantity</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>101</td>
+<td>200</td>
+<td>90</td>
+</tr>
+<tr>
+<td>201</td>
+<td>300</td>
+<td>80</td>
+</tr>
+<tr>
+<td>301</td>
+<td>inf.</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scenario 1:</strong> Quantity 500, STEPPED = 500 * 70 = $35000<br />
+<strong>Scenario 2:</strong> Quantity 500, RAMPED = 100 * 100 + 100 * 90 + 100 * 80 + 200 * 70 = $41000</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../contracts/" class="btn btn-neutral float-left" title="Contract Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../usage/" class="btn btn-neutral float-right" title="Usage Object">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../modifiers/" class="btn btn-neutral float-right" title="Modifiers">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -164,7 +227,7 @@ Plans are meant to be flexible, they can be created specific to each contract an
       <span><a href="../contracts/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../modifiers/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
